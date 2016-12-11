@@ -70,7 +70,7 @@
 void main(void)
 {
 /* USER CODE BEGIN (3) */
-	rtiInit();														// Initialize RTI driver
+	rtiInit();														// Initialize RTI module
     gioREG->GCR0 = 1U;												// Set the Global Control Register
     gioSetDirection(gioPORTB, 0xFF);								// Set GIO port pin direction to all output
 	rtiEnableNotification(rtiREG1,rtiNOTIFICATION_COMPARE0);		// Enable RTI Compare 0 interrupt notification
