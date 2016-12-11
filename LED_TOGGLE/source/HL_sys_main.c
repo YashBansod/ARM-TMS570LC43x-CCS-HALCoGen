@@ -67,15 +67,15 @@
 void main(void)
 {
 /* USER CODE BEGIN (3) */
-	uint32_t i;
-	gioInit();
-	gioSetDirection(gioPORTB, 0xFF);
-	while(1){
-		gioSetBit(gioPORTB, 6, 1);
-		gioSetBit(gioPORTB, 7, 0);
-		for (i=0; i<27272727; i++);
-		gioSetBit(gioPORTB, 6, 0);
-		gioSetBit(gioPORTB, 7, 1);
+	uint32_t i;													// Create a 32 bit integer variable for counting cycles
+	gioInit();													// Initialize the GIO module
+	gioSetDirection(gioPORTB, 0xFF);							// Set GIO port pin direction to all output
+	while(1){													// Start an infinite loop
+		gioSetBit(gioPORTB, 6, 1);								// Set the GIOB6 pin
+		gioSetBit(gioPORTB, 7, 0);								// Clear the GIOB7 pin
+		for (i=0; i<27272727; i++);								// The For loop takes 11 MC, hence 300M/11 = 27272727 MC for 1 sec
+		gioSetBit(gioPORTB, 6, 0);								// Clear the GIOB6 pin
+		gioSetBit(gioPORTB, 7, 1);								// Set the GIOB7 pin
 		for (i=0; i<27272727; i++);
 	}
 /* USER CODE END */
