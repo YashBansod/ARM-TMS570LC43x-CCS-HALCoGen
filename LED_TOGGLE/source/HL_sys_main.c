@@ -51,6 +51,8 @@
 #include "HL_sys_common.h"
 
 /* USER CODE BEGIN (1) */
+	uint32_t i;													// Create a 32 bit integer variable for counting cycles
+	uint8_t giobDIR;											// Create a 8 bit integer variable for GIO PORTB direction
 /* USER CODE END */
 
 /** @fn void main(void)
@@ -67,9 +69,9 @@
 void main(void)
 {
 /* USER CODE BEGIN (3) */
-	uint32_t i;													// Create a 32 bit integer variable for counting cycles
+	giobDIR = 0xFF;
 	gioInit();													// Initialize the GIO module
-	gioSetDirection(gioPORTB, 0xFF);							// Set GIO port pin direction to all output
+	gioSetDirection(gioPORTB, giobDIR);							// Set GIOB port pin direction to all output
 	while(1){													// Start an infinite loop
 		gioSetBit(gioPORTB, 6, 1);								// Set the GIOB6 pin
 		gioSetBit(gioPORTB, 7, 0);								// Clear the GIOB7 pin
