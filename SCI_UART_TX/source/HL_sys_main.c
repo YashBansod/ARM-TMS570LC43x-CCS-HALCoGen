@@ -61,6 +61,7 @@ uint8  TEXT2[TSIZE2]= {'I','S',' '};
 uint8  TEXT3[TSIZE3]= {'A','W','E','S','O','M','E','\n','\r'};
 
 #define UART sciREG1
+uint32_t i;													// Declare a variable for delay
 /* USER CODE END */
 
 /** @fn void main(void)
@@ -79,7 +80,6 @@ void wait(uint32 time);
 void main(void)
 {
 /* USER CODE BEGIN (3) */
-	uint32_t i;													// Declare a variable for delay
     sciInit();      											// Initialize sci module
     while(1)        											// For continious display
     {
