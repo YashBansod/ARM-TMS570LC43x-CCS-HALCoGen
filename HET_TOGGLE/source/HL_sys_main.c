@@ -51,6 +51,8 @@
 #include "HL_sys_common.h"
 
 /* USER CODE BEGIN (1) */
+	uint32_t i;															// Create a 32 bit integer variable for counting cycles
+	uint32_t hetp1DIR;													// Create a 32 bit integer variable for HET PORT1 direction
 /* USER CODE END */
 
 /** @fn void main(void)
@@ -67,8 +69,8 @@
 void main(void)
 {
 /* USER CODE BEGIN (3) */
-	uint32_t i;															// Create a 32 bit integer variable for counting cycles
-	gioSetDirection(hetPORT1, 0xFFFFFFFF);								// Set hetPORT1 direction to all output
+	hetp1DIR = 0xFFFFFFFF;
+	gioSetDirection(hetPORT1, hetp1DIR);								// Set hetPORT1 direction to all output
 	while(1){															// Start an infinite loop
 		gioSetBit(hetPORT1, 1, 1);										// Set the HET1_1 pin
 		gioSetBit(hetPORT1, 2, 0);										// Clear the HET1_2 pin
